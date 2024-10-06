@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
 }
 
 android {
@@ -50,7 +51,10 @@ android {
 }
 
 dependencies {
-
+    implementation ("androidx.navigation:navigation-compose:2.6.0")
+    implementation ("androidx.compose.ui:ui:1.4.5")
+    implementation ("androidx.compose.material3:material3:1.1.0")
+    implementation ("androidx.navigation:navigation-compose:2.6.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

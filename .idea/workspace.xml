@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="231a29cb-bb5a-4452-8685-fc93b802d30e" name="Changes" comment="" />
+    <list default="true" id="231a29cb-bb5a-4452-8685-fc93b802d30e" name="Changes" comment="Proyecto y diseño de la pantalla de inicio" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +34,7 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/dulce/AndroidStudioProjects/Movil_BlocNotas/Myproyectofinal",
     "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
 }]]></component>
@@ -46,6 +47,19 @@
       <option name="presentableId" value="Default" />
       <updated>1728165528591</updated>
     </task>
+    <task id="LOCAL-00001" summary="Proyecto y diseño de la pantalla de inicio">
+      <option name="closed" value="true" />
+      <created>1728165943519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1728165943520</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Proyecto y diseño de la pantalla de inicio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proyecto y diseño de la pantalla de inicio" />
   </component>
 </project>
