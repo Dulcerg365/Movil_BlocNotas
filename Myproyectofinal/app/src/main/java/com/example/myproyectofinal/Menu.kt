@@ -3,6 +3,7 @@ package com.example.myproyectofinal
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +12,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Card
@@ -51,13 +54,16 @@ fun menu() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Column {
+            Row {
                 TaskButton(R.drawable.calendar, "Hoy")
                 TaskButton(R.drawable.calendar_azul, "Programadas")
+            }
+            Row {
                 TaskButton(R.drawable.folder, "Todos")
                 TaskButton(R.drawable.yes, "Terminados")
-
-
+            }
         }
+
         Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier
@@ -77,13 +83,12 @@ fun TaskButton(iconResId: Int, text: String) {
     Card(
         modifier = Modifier
             .padding(8.dp)
-            .fillMaxWidth()
-            .height(60.dp),
+            .size(170.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxSize()
         ) {
             Image(
@@ -91,28 +96,37 @@ fun TaskButton(iconResId: Int, text: String) {
                 contentDescription = null,
                 modifier = Modifier.size(24.dp)
             )
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
             Text(text)
         }
     }
 }
 @Composable
 fun SectionHeader(title: String, iconResId: Int) {
-    Row(
+    Card(
         modifier = Modifier
+            .padding(8.dp)
             .fillMaxWidth()
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+            .height(60.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Text(title, style = MaterialTheme.typography.headlineSmall)
-        Image(
-            painter = painterResource(id = iconResId),
-            contentDescription = null,
-            modifier = Modifier.size(24.dp)
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.fillMaxSize().
+            padding(horizontal = 16.dp)
+        ) {
+            Text(title, style = MaterialTheme.typography.headlineSmall)
+            Image(
+                painter = painterResource(id = iconResId),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(24.dp)
+            )
+        }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun MenuScreenPreview() {

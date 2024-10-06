@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
                                     modifier = Modifier.padding(innerPadding)
                                 )
                                 LaunchedEffect(Unit) {
-                                    delay(5000)
+                                    delay(3000)
                                     navController.navigate("menu") {
                                         popUpTo("first_screen") { inclusive = true }
                                     }
