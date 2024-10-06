@@ -1,6 +1,7 @@
 package com.example.myproyectofinal
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,11 +32,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.composable
+import com.example.myproyectofinal.hoy
+
 
 @Composable
-fun menu() {
+fun menu(navController: NavHostController) {
     val searchText = remember { mutableStateOf("") }
-
     Column(modifier = Modifier.padding(16.dp)) {
         Spacer(modifier = Modifier.height(16.dp))
         TextField(
@@ -55,12 +62,20 @@ fun menu() {
 
         Column {
             Row {
-                TaskButton(R.drawable.calendar, "Hoy")
-                TaskButton(R.drawable.calendar_azul, "Programadas")
+                TaskButton(R.drawable.calendar, "Hoy") {
+                    navController.navigate("Hoy")
+                }
+                TaskButton(R.drawable.calendar_azul, "Programadas") {
+                    navController.navigate("Programadas")
+                }
             }
             Row {
-                TaskButton(R.drawable.folder, "Todos")
-                TaskButton(R.drawable.yes, "Terminados")
+                TaskButton(R.drawable.folder, "Todos") {
+                    navController.navigate("Todos")
+                }
+                TaskButton(R.drawable.yes, "Terminados") {
+                    navController.navigate("Terminados")
+                }
             }
         }
 
@@ -76,14 +91,17 @@ fun menu() {
         }
         SectionHeader("Mis notas", R.drawable.notes)
         SectionHeader("Tareas", R.drawable.tareas)
+
     }
+
 }
 @Composable
-fun TaskButton(iconResId: Int, text: String) {
+fun TaskButton(iconResId: Int, text: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(8.dp)
-            .size(170.dp),
+            .size(170.dp)
+            .clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
         Column(
@@ -113,8 +131,9 @@ fun SectionHeader(title: String, iconResId: Int) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.fillMaxSize().
-            padding(horizontal = 16.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(horizontal = 16.dp)
         ) {
             Text(title, style = MaterialTheme.typography.headlineSmall)
             Image(
@@ -130,5 +149,7 @@ fun SectionHeader(title: String, iconResId: Int) {
 @Preview(showBackground = true)
 @Composable
 fun MenuScreenPreview() {
-    menu()
+    val navController = rememberNavController()
+    menu(navController)
+
 }

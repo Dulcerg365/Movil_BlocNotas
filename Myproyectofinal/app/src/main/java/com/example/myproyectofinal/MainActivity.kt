@@ -82,7 +82,19 @@ class MainActivity : ComponentActivity() {
 
                     }
                     composable("menu") {
-                        menu()
+                        menu(navController)
+                    }
+                    composable("Hoy") {
+                        hoy()
+                    }
+                    composable("Programadas") {
+
+                    }
+                    composable("Todos") {
+
+                    }
+                    composable("Terminados") {
+
                     }
                 }
             }
